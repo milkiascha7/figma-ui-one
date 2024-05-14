@@ -11,28 +11,28 @@ const config: Config = {
       colors: {
         primary: {
           // primary-blue
-          'primary-blue-50': '#e6f0ff',
-          'primary-blue-100': '#b1d1ff',
-          'primary-blue-200': '#8cbaff',
-          'primary-blue-300': '#579bff',
-          'primary-blue-400': '#3687ff',
-          'primary-blue-500': '#0469ff',
-          'primary-blue-600': '#0460e8',
-          'primary-blue-700': '#034bb5',
-          'primary-blue-800': '#023a8c',
-          'primary-blue-900': '#022c6b',
+          'blue-50': '#e6f0ff',
+          'blue-100': '#b1d1ff',
+          'blue-200': '#8cbaff',
+          'blue-300': '#579bff',
+          'blue-400': '#3687ff',
+          'blue-500': '#0469ff',
+          'blue-600': '#0460e8',
+          'blue-700': '#034bb5',
+          'blue-800': '#023a8c',
+          'blue-900': '#022c6b',
 
           // primary-purple
-          'primary-purple-50': '#f1e6ff',
-          'primary-purple-100': '#d2b0fe',
-          'primary-purple-200': '#bc8afd',
-          'primary-purple-300': '#9e54fc',
-          'primary-purple-400': '#8b33fc',
-          'primary-purple-500': '#6e00fb',
-          'primary-purple-600': '#6400e4',
-          'primary-purple-700': '#4e00b2',
-          'primary-purple-800': '#3d008a',
-          'primary-purple-900': '#2e0069'
+          'purple-50': '#f1e6ff',
+          'purple-100': '#d2b0fe',
+          'purple-200': '#bc8afd',
+          'purple-300': '#9e54fc',
+          'purple-400': '#8b33fc',
+          'purple-500': '#6e00fb',
+          'purple-600': '#6400e4',
+          'purple-700': '#4e00b2',
+          'purple-800': '#3d008a',
+          'purple-900': '#2e0069'
         },
         washed:{
           //  washed blue
@@ -94,6 +94,8 @@ const config: Config = {
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        'purple-gradient':'background: rgba(78, 0, 178, 0.7) opacity: 0.4 filter: blur(130.1px)',
+        'bottom-gradient': ' background: linear-gradient(180deg, rgba(14, 14, 14, 0) 0%, #030014 82.48%);',
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
@@ -162,3 +164,16 @@ export default config;
 // /* Neutral/neutral-11 */
 // border: 1px solid #211F30;
 // border-radius: 15px;
+
+
+/* Ellipse 5 */
+
+// position: absolute;
+// width: 1093px;
+// height: 153px;
+// left: -114px;
+// top: 596px;
+
+// background: rgba(78, 0, 178, 0.7);
+// opacity: 0.4;
+// filter: blur(130.1px);

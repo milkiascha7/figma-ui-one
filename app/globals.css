@@ -7,3 +7,37 @@
 /* body{
   background-color: var(--brand-dark);
 } */
+
+.purple-gradient{
+  background: rgba(78, 0, 178, 0.7);
+  opacity: 0.4;
+  filter: blur(130.1px);
+  /* background-image: linear-gradient(-90deg, #F2F2F7 3.91%, rgba(78, 0, 178, 0.7)); */
+}
+.bottom-gradient{
+  background: linear-gradient(180deg, rgba(14, 14, 14, 0) 0%, #030014 82.48%);
+}
+
+
+/* Ellipse 5 */
+
+/* position: absolute;
+width: 1093px;
+height: 153px;
+left: -114px;
+top: 596px;
+
+background: rgba(78, 0, 178, 0.7);
+opacity: 0.4;
+filter: blur(130.1px); */
+
+
+/* Rectangle 4 */
+/* 
+position: absolute;
+width: 1317px;
+height: 236px;
+left: 63px;
+top: 955px; */
+
+
