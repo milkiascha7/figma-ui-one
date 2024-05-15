@@ -1,5 +1,6 @@
 const Imagesvg = () => {
   return (
+    <div className="z-40">
       <svg
         width="1208"
         height="496"
@@ -502,6 +503,7 @@ const Imagesvg = () => {
           </clipPath>
         </defs>
       </svg>
+    </div>
   );
 };
 
