@@ -4,9 +4,9 @@
 
 
 
-/* body{
-  background-color: var(--brand-dark);
-} */
+body{
+  overflow: hidden;
+}
 
 .purple-gradient{
   background: rgba(78, 0, 178, 0.7);
