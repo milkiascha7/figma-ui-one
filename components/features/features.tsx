@@ -6,7 +6,7 @@ const Features = () => {
   return (
     <div className="w-full h-full mt-40 flex flex-col gap-y-10 lg:gap-y-8 md:items-center justify-start md:justify-center mx-20 overflow-x-hidden py-10">
       <div className="p-px bg-gradient-to-r from-primary-blue-600 to-primary-purple-600 w-fit rounded-full z-10 mx-5 md:mx-0">
-        <button className="bg-gradient-to-b from-neutral-13 to-borderColor-gradient-2 flex justify-center items-center text-washed-purple-400 rounded-full px-3 py-1">
+        <button className="bg-gradient-to-b from-neutral-13 to-brand-dark flex justify-center items-center text-washed-purple-400 rounded-full px-3 py-1">
           <span className="px-4 text-[13px] md:text-lg">Features</span>
         </button>
       </div>
