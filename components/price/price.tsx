@@ -17,12 +17,12 @@ const Price = () => {
         personal and professional productivity needs
       </p>
 
-      <div className="w-1/2 h-[403px] purple-gradient absolute right-0 top-52" />
+      <div className="w-1/2 h-[303px] purple-gradient absolute right-0 top-52" />
 
       {/* cards */}
-      <div className="flex flex-col md:flex-row w-full lg:w-2/3 h-full justify-around md:gap-x-10 lg:gap-x-28 gap-y-8 md:gap-y-0 px-10 md:px-10 border-washed-blue-900 z-50">
-         {/* card one */}
-        <div className="w-full md:w-2/3 h-full flex flex-col  border-[1px] border-neutral-11 rounded-md">
+      <div className="flex flex-col md:flex-row w-full md:w-3/4 lg:w-2/3 h-full justify-around md:gap-x-10 lg:gap-x-28 gap-y-8 md:gap-y-0 px-5 md:px-10 border-washed-blue-900 z-50">
+        {/* card one */}
+        <div className="w-full md:w-2/4 lg:w-2/3 h-full flex flex-col  border-[1px] border-neutral-11 rounded-3xl">
           <div className="w-full mt-4">
             <h3 className="text-neutral-2 pl-10 text-4xl font-bold">Free</h3>
           </div>
@@ -38,7 +38,7 @@ const Price = () => {
             <div className="bg-gradient-to-r from-borderColor-gradient-2 to-neutral-7 rounded-md p-px hover:bg-gradient-to-r hover:from-borderColor-gradient-2 hover:to-brand-washedPurple transition delay-150 duration-300 ease-in-out">
               <button className="text-md md:text-lg w-full bg-gradient-to-b from-neutral-13 to-borderColor-gradient-2 py-2 px-4 rounded-md  text-neutral-6 hover:border-primary-primary-purple-600 hover:text-brand-washedPurple">
                 <span className="ml-4 text-md md:text-lg font-bold">
-                  Get Cypress for Free
+                  Get Started
                 </span>
               </button>
             </div>
@@ -168,8 +168,29 @@ const Price = () => {
           </div>
         </div>
 
+       
         {/* Card two */}
-        <div className="w-full md:w-2/3 h-full flex flex-col border-[1px] border-washed-blue-900 rounded-md ">
+        <div className="w-full md:w-2/4 lg:w-2/3 h-full flex flex-col border-[1px] border-washed-blue-900 rounded-3xl relative">
+             {/* icon of tag */}
+        <div className=" relative -right-6 top-2">
+          <svg
+            width="38"
+            height="38"
+            viewBox="0 0 38 38"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="absolute right-0"
+          >
+            <path
+              d="M33.7484 24.2043L24.3386 33.6197C22.7213 35.238 20.2219 35.238 18.6046 33.6197L5.2251 20.2322C3.90185 19.0552 3.16672 17.2899 3.16672 15.5245V5.81483C3.16672 4.34367 4.34293 3.16675 5.81321 3.16675H15.517C17.2813 3.16675 19.0457 3.90233 20.2219 5.07925L33.6014 18.4668C35.2187 20.0851 35.2187 22.7331 33.7484 24.2043Z"
+              fill="#B5B2FF"
+            />
+            <path
+              d="M13.4713 13.4212C14.4123 12.4802 14.4123 10.9544 13.4713 10.0133C12.5302 9.07229 11.0045 9.07229 10.0634 10.0133C9.12233 10.9544 9.12233 12.4802 10.0634 13.4212C11.0045 14.3623 12.5302 14.3623 13.4713 13.4212Z"
+              fill="#6889FF"
+            />
+          </svg>
+        </div>
           <div className="w-full mt-2">
             <h3 className="text-neutral-2 pl-10 text-4xl font-bold">
               Pro Plans
@@ -188,7 +209,7 @@ const Price = () => {
             <div className="bg-gradient-to-r from-borderColor-gradient-2 to-neutral-7 rounded-md p-px hover:bg-gradient-to-r hover:from-borderColor-gradient-2 hover:to-brand-washedPurple transition delay-150 duration-300 ease-in-out">
               <button className="text-md md:text-lg w-full bg-gradient-to-b from-neutral-13 to-borderColor-gradient-2 py-2 px-4 rounded-md  text-neutral-6 hover:border-primary-primary-purple-600 hover:text-brand-washedPurple">
                 <span className="ml-4 text-md md:text-lg font-bold">
-                  Get Cypress for Free
+                Get Started
                 </span>
               </button>
             </div>

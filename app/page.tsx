@@ -1,4 +1,5 @@
 import Features from "@/components/features/features";
+import Footer from "@/components/footer/footer";
 import HeroSection from "@/components/herosection/hero-section";
 import Price from "@/components/price/price";
 import Testimonial from "@/components/testimonial/testimonial";
@@ -10,6 +11,7 @@ export default function Home() {
      <Features />
      <Testimonial />
      <Price />
+     <Footer />
     </main>
   );
 }
