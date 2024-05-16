@@ -1,10 +1,32 @@
 "use client";
 import Link from "next/link";
+import { useRef } from "react";
+
+import { motion, useInView } from "framer-motion";
+import { opacity } from "./animate";
 
 const Nav = () => {
+  const containerRef = useRef(null);
+
   return (
-    <div className="bg-brand-dark text-neutral-5 w-full h-[100px] flex items-center justify-center md:justify-between px-5 md:px-10 lg:px-10 gap-x-5 border-b-[1px] border-neutral-11">
-      <div className="w-1/2 md:w-full flex">
+    <motion.div
+      ref={containerRef}
+      className="animate-in bg-brand-dark text-neutral-5 w-full h-[100px] flex items-center justify-center md:justify-between px-5 md:px-10 lg:px-10 gap-x-5  border-neutral-11"
+    >
+      <motion.div
+        className="w-1/2 md:w-full flex"
+        // variants={opacity}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        variants={{
+          initail: { opacity: 0, y: "0%" },
+          visible: { opacity: 1, y: "0%" },
+          hidden: { opacity: 0, y: "100%" },
+        }}
+        // animate={isInView ? "open" : "closed"}
+      >
         {/* logo */}
         <Link href="/" className="w-full flex items-center justify-center">
           <div className="p-px rounded-full">
@@ -27,8 +49,19 @@ const Nav = () => {
             </button>
           </div>
         </Link>
-      </div>
-      <div className="hidden lg:flex w-full">
+      </motion.div>
+      <motion.div
+        className="hidden lg:flex w-full"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        variants={{
+          initail: { opacity: 0, y: "0%" },
+          visible: { opacity: 1, y: "0%" },
+          hidden: { opacity: 0, y: "100%" },
+        }}
+      >
         {/* middle */}
         <ul className="flex w-full justify-between items-center gap-x-10 border-2 border-neutral-11 rounded-full p-4">
           <li className="w-full">
@@ -57,8 +90,19 @@ const Nav = () => {
             </Link>
           </li>
         </ul>
-      </div>
-      <div className="w-1/2 md:w-full flex justify-around md:justify-end items-center md:gap-x-10">
+      </motion.div>
+      <motion.div
+        className="w-1/2 md:w-full flex justify-around md:justify-end items-center md:gap-x-10"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        variants={{
+          initail: { opacity: 0, y: "0%" },
+          visible: { opacity: 1, y: "0%" },
+          hidden: { opacity: 0, y: "100%" },
+        }}
+      >
         {/* Signup */}
         <Link href="/">Login</Link>
         <div className="bg-gradient-to-r from-borderColor-gradient-2 to-neutral-2 rounded-md p-px hover:bg-gradient-to-r hover:from-borderColor-gradient-2 hover:to-brand-washedPurple transition delay-150 duration-300 ease-in-out">
@@ -66,13 +110,10 @@ const Nav = () => {
             Sign Up
           </button>
         </div>
-      </div>
+      </motion.div>
+
+      {/* mobile hamburger */}
       <div className="flex md:hidden justify-center items-center">
-        {/* <ul className="flex flex-col justify-center items-center gap-y-2 w-full">
-          <li className="w-10 h-[0.2px] border-2 border-white"></li>
-          <li className="w-10 h-[0.2px] border-2 border-white"></li>
-          <li className="w-10 h-[0.2px] border-2 border-white"></li>
-        </ul> */}
         <svg
           width="18"
           height="10"
@@ -85,7 +126,7 @@ const Nav = () => {
           <rect y="8" width="18" height="2" fill="#D9D9D9" />
         </svg>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,11 +1,92 @@
+"use client";
+
+import { useRef } from "react";
 import Imagesvg from "@/lib/image-svg";
 import Image from "next/image";
+import { useInView, motion } from "framer-motion";
+
+import { ScrollTrigger } from "gsap/all";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import {  opacityImage, slideUp } from "./animate";
 
 const HeroSection = () => {
+  const container = useRef(null);
+  const textContainer = useRef(null);
+  const slider = useRef(null);
+  const firstText = useRef(null);
+  const secondText = useRef(null);
+  const thirdText = useRef(null);
+  const fourthText = useRef(null);
+  const fivthText = useRef(null);
+  let xPercent = 0;
+
+  let directionRef = useRef(0);
+
+  const isInView = useInView(container);
+
+  const isInViewText = useInView(textContainer);
+
+  useGSAP(
+    () => {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.to(slider.current, {
+        scrollTrigger: {
+          trigger: document.documentElement,
+          scrub: 0.25,
+          start: 0,
+          end: window.innerHeight,
+          onUpdate: (e) => (directionRef.current = e.direction * 1),
+        },
+        x: "50px",
+      });
+      if (slider.current) {
+        requestAnimationFrame(animate);
+      } else return null;
+    },
+    { scope: container }
+  );
+
+  const animate = () => {
+    if (xPercent < -300) {
+      xPercent = 0;
+    } else if (xPercent > 0) {
+      xPercent = -300;
+    }
+    if (
+      firstText.current &&
+      secondText.current &&
+      thirdText.current &&
+      fourthText.current &&
+      fivthText.current
+    ) {
+      gsap.set(firstText?.current, { xPercent: xPercent });
+      gsap.set(secondText?.current, { xPercent: xPercent });
+      gsap.set(thirdText?.current, { xPercent: xPercent });
+      gsap.set(fourthText?.current, { xPercent: xPercent });
+      gsap.set(fivthText?.current, { xPercent: xPercent });
+      requestAnimationFrame(animate);
+      xPercent += 0.1 * directionRef.current;
+    } else return null;
+  };
+
   return (
-    <div className="w-full h-full mt-20 flex flex-col gap-y-10 lg:gap-y-8 md:items-center justify-start md:justify-center mx-20 overflow-x-hidden">
+    <motion.div
+      ref={container}
+      className="relative w-full h-full mt-20 flex flex-col gap-y-10 lg:gap-y-8 md:items-center justify-start md:justify-center mx-20 overflow-hidden"
+    >
       {/* button */}
-      <div className="p-px bg-gradient-to-r from-primary-blue-600 to-primary-purple-600 w-fit rounded-full z-10 mx-5 md:mx-0">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.5, delay: 0.7 }}
+        variants={{
+          initail: { opacity: 0, y: "0%" },
+          visible: { opacity: 1, y: "0%" },
+          hidden: { opacity: 0, y: "100%" },
+        }}
+        className="p-px bg-gradient-to-r from-primary-blue-600 to-primary-purple-600 w-fit rounded-full z-10 mx-5 md:mx-0"
+      >
         <button className="bg-gradient-to-b from-neutral-13 to-borderColor-gradient-2 flex justify-center items-center text-washed-purple-400 rounded-full px-3 py-1">
           <svg
             width="22"
@@ -23,32 +104,74 @@ const HeroSection = () => {
             Your Workspace, Perfected
           </span>
         </button>
-      </div>
+      </motion.div>
 
-      <h2 className="px-5 md:px-0 text-washed-purple-400 text-[40px] md:text-[50px] lg:text-[60px] leading-tight w-full md:w-2/3 md:text-center font-bold z-10">
-        All-In-One collaboration and productivity Platform
-      </h2>
+      <motion.h2
+        ref={textContainer}
+        // variants={opacity}
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.5, delay: 0.7 }}
+        variants={{
+          initail: { opacity: 0, y: "100%" },
+          visible: { opacity: 1, y: "0%" },
+          hidden: { opacity: 0, y: "100%" },
+        }}
+        className="px-5 md:px-0 text-washed-purple-400 text-[40px] md:text-[50px] lg:text-[60px] leading-tight w-full md:w-2/3 md:text-center font-bold z-10"
+      >
+        One-Stop Platform for Productivity and Collaboration
+      </motion.h2>
 
       {/* button */}
-      <div className="mx-5 md:mx-0 w-fit p-px bg-gradient-to-r from-primary-purple-600 to-primary-blue-300 rounded-md animate-pulse cursor-pointer z-10">
+      <motion.div
+      initial="hidden"
+      whileInView="visible"
+      transition={{ duration: 0.5, delay: 0.7 }}
+      variants={{
+        initail: { opacity: 0, y: "100%" },
+        visible: { opacity: 1, y: "0%" },
+        hidden: { opacity: 0, y: "100%" },
+      }}
+        className="mx-5 md:mx-0 w-fit p-px bg-gradient-to-r from-primary-purple-600 to-primary-blue-300 rounded-md cursor-pointer z-10"
+      >
         <button className="cursor-pointer bg-gradient-to-b from-neutral-13 to-borderColor-gradient-2 flex justify-center items-center text-washed-purple-400 rounded-md px-4 py-2">
           <span className="ml-4 text-md md:text-lg font-bold">
-            Get Cypress for Free
+            Get ChatProdigy for Free
           </span>
         </button>
-      </div>
+      </motion.div>
 
       {/* Image in SVG */}
-      <div className="flex flex-col w-full h-full relative md:justify-center lg:items-center mt-10 lg:mt-0">
-        <div className="w-full md:w-1/2 h-[153px] purple-gradient border-2 absolute -top-32 left-0 animate-pulse z-10" />
-        <div className="w-full md:w-1/2 h-[153px] purple-gradient border-2 absolute -top-32 right-0 animate-pulse z-10" />
-        <Imagesvg />
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        variants={{
+          initail: { opacity: 0, y: "100%" },
+          visible: { opacity: 1, y: "0%" },
+          hidden: { opacity: 0, y: "100%" },
+        }}
+        className="flex flex-col w-full h-full relative md:justify-center lg:items-center mt-10 lg:mt-0"
+      >
+        <div
+          // animate={isInViewText ? "open" : "closed"}
+          className="w-full md:w-1/2 h-[153px] purple-gradient absolute -top-32 left-0 animate-pulse z-10"
+        />
+        <div className="w-full md:w-1/2 h-[153px] purple-gradient absolute -top-32 right-0 animate-pulse z-10" />
         <div className="w-full absolute h-[150px] md:h-[350px] bottom-[0px] left-0 bottom-gradient z-50" />
-      </div>
+        <Imagesvg />
+      </motion.div>
 
       {/* Logo Images */}
-      <div className="flex w-full h-full px-4 md:px-10 gap-x-4 justify-between items-center realtive">
-        <div className="relative w-[200px] md:w-[100px] h-[50px]">
+      <div
+        ref={slider}
+        className="relative bottom-0  flex w-[110vw] h-full px-4 md:px-10 gap-x-4 justify-between items-center realtive"
+      >
+        <div
+          ref={firstText}
+          className="relative w-[200px] md:w-[100px] h-[50px]"
+        >
           <Image
             src="/logo/Company logo.png"
             alt="logo"
@@ -56,7 +179,10 @@ const HeroSection = () => {
             className="w-full h-full object-contain object-center"
           />
         </div>
-        <div className="relative w-[200px] md:w-[100px] h-[50px]">
+        <div
+          ref={secondText}
+          className="relative w-[200px] md:w-[100px] h-[50px]"
+        >
           <Image
             src="/logo/Company logo-1.png"
             alt="logo"
@@ -64,7 +190,10 @@ const HeroSection = () => {
             className="top-0 left-0 w-full h-full object-contain object-center"
           />
         </div>
-        <div className="relative w-[200px] md:w-[100px] h-[50px]">
+        <div
+          ref={thirdText}
+          className="relative w-[200px] md:w-[100px] h-[50px]"
+        >
           <Image
             src="/logo/Company logo-2.png"
             alt="logo"
@@ -72,7 +201,10 @@ const HeroSection = () => {
             className="w-full h-full object-contain object-center"
           />
         </div>
-        <div className="relative w-[200px] md:w-[100px] h-[50px]">
+        <div
+          ref={fourthText}
+          className="relative w-[200px] md:w-[100px] h-[50px]"
+        >
           <Image
             src="/logo/Company logo-3.png"
             alt="logo"
@@ -80,7 +212,10 @@ const HeroSection = () => {
             className="w-full h-full object-contain object-center"
           />
         </div>
-        <div className="relative w-[200px] md:w-[100px] h-[50px]">
+        <div
+          ref={fivthText}
+          className="relative w-[200px] md:w-[100px] h-[50px]"
+        >
           <Image
             src="/logo/Company logo-4.png"
             alt="logo"
@@ -89,7 +224,7 @@ const HeroSection = () => {
           />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
